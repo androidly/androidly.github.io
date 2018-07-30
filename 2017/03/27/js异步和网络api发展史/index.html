@@ -43,7 +43,7 @@
     
     <title>
         
-            web动画框架的初步设计 | 
+            js异步和网络Api发展史 | 
         
         标题
     </title>
@@ -53,8 +53,10 @@
     <link rel="icon" href="/img/favicon.png">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="我希望有一天webApp能够达到原生应用的用户体验。">
-    <meta name="keywords" content=",技术,js,html,开源">
+    <meta name="description" itemprop="description" content="
+从ajax到fetch，从回调到async，滑稽带你领略js异步和网络Api发展史。仅仅是速览不会深入
+">
+    <meta name="keywords" content=",技术,js,web">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +217,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="标题">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2017/03/22/qq/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2017/03/27/js异步和网络api发展史/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="标题">
@@ -230,16 +232,18 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2017/03/22/qq/">
+    <meta property="og:url" content="http://yoursite.com/2017/03/27/js异步和网络api发展史/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="web动画框架的初步设计 | 标题">
+    <meta property="og:title" content="js异步和网络Api发展史 | 标题">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="我希望有一天webApp能够达到原生应用的用户体验。">
-    <meta property="og:article:tag" content="技术"> <meta property="og:article:tag" content="js"> <meta property="og:article:tag" content="html"> <meta property="og:article:tag" content="开源"> 
+    <meta property="og:description" content="
+从ajax到fetch，从回调到async，滑稽带你领略js异步和网络Api发展史。仅仅是速览不会深入
+">
+    <meta property="og:article:tag" content="技术"> <meta property="og:article:tag" content="js"> <meta property="og:article:tag" content="web"> 
 
     
-        <meta property="article:published_time" content="Wed Mar 22 2017 19:38:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jul 30 2018 09:22:27 GMT+0800">
+        <meta property="article:published_time" content="Mon Mar 27 2017 19:06:50 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jul 30 2018 09:49:03 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -247,7 +251,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/03/22/qq/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/03/27/js异步和网络api发展史/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -259,10 +263,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/03/22/qq/index.html",
-    "headline": "web动画框架的初步设计",
-    "datePublished": "Wed Mar 22 2017 19:38:00 GMT+0800",
-    "dateModified": "Mon Jul 30 2018 09:22:27 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2017/03/27/js异步和网络api发展史/index.html",
+    "headline": "js异步和网络Api发展史",
+    "datePublished": "Mon Mar 27 2017 19:06:50 GMT+0800",
+    "dateModified": "Mon Jul 30 2018 09:49:03 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Yan",
@@ -280,8 +284,10 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",技术,js,html,开源",
-    "description": "我希望有一天webApp能够达到原生应用的用户体验。",
+    "keywords": ",技术,js,web",
+    "description": "
+从ajax到fetch，从回调到async，滑稽带你领略js异步和网络Api发展史。仅仅是速览不会深入
+",
 }
 </script>
 
@@ -346,7 +352,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缘起"><span class="post-toc-number">1.</span> <span class="post-toc-text">缘起</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果"><span class="post-toc-number">2.</span> <span class="post-toc-text">效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思路"><span class="post-toc-number">3.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布局层"><span class="post-toc-number">4.</span> <span class="post-toc-text">布局层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结尾"><span class="post-toc-number">5.</span> <span class="post-toc-text">结尾</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js运行顺序"><span class="post-toc-number">1.</span> <span class="post-toc-text">js运行顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步"><span class="post-toc-number">2.</span> <span class="post-toc-text">异步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回调（callback）"><span class="post-toc-number">3.</span> <span class="post-toc-text">回调（callback）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Ajax"><span class="post-toc-number">4.</span> <span class="post-toc-text">Ajax</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise-（承诺）"><span class="post-toc-number">5.</span> <span class="post-toc-text">Promise （承诺）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fetch"><span class="post-toc-number">6.</span> <span class="post-toc-text">fetch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generator-函数"><span class="post-toc-number">7.</span> <span class="post-toc-text">Generator 函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-函数"><span class="post-toc-number">8.</span> <span class="post-toc-text">async 函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-异常处理"><span class="post-toc-number">9.</span> <span class="post-toc-text">async 异常处理</span></a></li></ol>
     </ul>
     
 
@@ -366,10 +372,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/web动画框架的初步设计/cover.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/js异步和网络api发展史/cover.jpg)">
     
             <p class="article-headline-p">
-                web动画框架的初步设计
+                js异步和网络Api发展史
             </p>
         </div>
 
@@ -388,7 +394,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Yan</strong>
-        <span>3月 22, 2017</span>
+        <span>3月 27, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -412,7 +418,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/html/">html</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/js/">js</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/开源/">开源</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/技术/">技术</a>
+        <a class="post_tag-link" href="/tags/js/">js</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/web/">web</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/技术/">技术</a>
     </ul>
     
 
@@ -429,7 +435,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=web动画框架的初步设计&url=http://yoursite.com/2017/03/22/qq/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=js异步和网络Api发展史&url=http://yoursite.com/2017/03/27/js异步和网络api发展史/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -438,7 +444,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=web动画框架的初步设计&url=http://yoursite.com/2017/03/22/qq/index.html&via=Yan" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=js异步和网络Api发展史&url=http://yoursite.com/2017/03/27/js异步和网络api发展史/index.html&via=Yan" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -447,7 +453,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/03/22/qq/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/03/27/js异步和网络api发展史/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -456,7 +462,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/03/22/qq/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/03/27/js异步和网络api发展史/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -481,56 +487,81 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>我希望有一天webApp能够达到原生应用的用户体验。</p>
+        <blockquote>
+<p>从ajax到fetch，从回调到async，滑稽带你领略js异步和网络Api发展史。<br>仅仅是速览不会深入</p>
+</blockquote>
 <a id="more"></a>
-<p><em>最后证实是重复造轮子，人家还比我造的好太多，大家都散了吧。 （ 让我哭一会</em><br><a href="https://github.com/berzniz/react-overdrive" target="_blank" rel="noopener">https://github.com/berzniz/react-overdrive</a></p>
-<p><br></p>
-<p><br></p>
-<hr>
+<p>js是事件驱动的语言，单进程单线程。js主线程中有一个<code>Event Loop</code>（事件循环）。</p>
+<h2 id="js运行顺序"><a href="#js运行顺序" class="headerlink" title="js运行顺序"></a>js运行顺序</h2><p>js先执行一遍所有js文件，然后进入<code>Event Loop</code>，等到有事件进入，就执行事件处理程序，执行完后再次回到<code>Event Loop</code>。</p>
+<p>举个例子:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"><span class="comment">//死循环</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>第一次写这么复杂的东西，我的语文水平我自己清楚，看不懂的可以直接到下面评论区夸我了。</p>
+<p>如果你在浏览器中运行，页面会卡死（在一些浏览器中仍可以滚动），因为js不执行完，浏览器不会做任何响应。</p>
 </blockquote>
-<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a><del>缘起</del></h2><p>我是怎么喜欢上material design的？ 多半是因为这张炫酷的图。</p>
-<p><img src="/img/web动画框架的初步设计/炫酷ui.gif" alt=""></p>
-<p>哇！炫酷！流畅！</p>
-<p>我立即搜索material design的前端框架，发现没有一款可以实现这种效果的。</p>
-<p>什么？？？？ 我大前端连区区一个动画都搞不定！！！</p>
+<p>上面的代码永远不会输出hello，因为<code>setTimeout(...,0)</code>，虽然是延时0ms，但还是会在下一个事件循环中被调用。</p>
+<p>而后面的<code>while</code>循环是死循环，js引擎永远执行不完，所以不会进入事件循环的，也就永远执行不到<code>timeout</code>里的代码</p>
+<p>更详细的介绍可在<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">阮老师的博客</a>中看见。</p>
+<h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>所以啥是异步呢？</p>
+<p>我们先讲异步的反义词同步。</p>
 <blockquote>
-<p>codepen上的虽然有类似的特效，但从复用性，性能等方面考虑都没有能作为框架的。</p>
+<p>同步就是在发出一个功能调用时，在没有得到结果之前，该调用就不返回。</p>
 </blockquote>
-<p>于是开始造轮之路。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>初步实现的效果图：</p>
-<p><img src="/img/web动画框架的初步设计/效果图.gif" alt=""></p>
+<p>比如你发出一个网络请求请求一个数据，程序一直等待数据返回，不返回就不继续执行，这就是同步。</p>
+<p>异步要智能得多。在网络请求没有返回之前程序还会继续执行。</p>
+<p>延迟一秒在不同语言中同步、异步的不同写法:</p>
+<p>JS 异步<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line"><span class="comment">//输出 1 3 2</span></span><br></pre></td></tr></table></figure></p>
+<p>Java 同步<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">System.out.print(<span class="number">1</span>);</span><br><span class="line"><span class="comment">//延迟1000ms</span></span><br><span class="line">Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">System.out.print(<span class="number">2</span>);</span><br><span class="line">System.out.print(<span class="number">3</span>);</span><br><span class="line"><span class="comment">//输出 1 2 3</span></span><br></pre></td></tr></table></figure></p>
+<p>显然<code>Java</code>的同步跟符合人类的思想，顺序执行非常简单。</p>
+<p>但<code>JS</code>的优势也特别明显，在延迟时程序不会卡死，而是继续执行下去。</p>
+<h2 id="回调（callback）"><a href="#回调（callback）" class="headerlink" title="回调（callback）"></a>回调（callback）</h2><p>回调是JS异步编程最常见的方式。</p>
+<p><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="noopener">回调函数（callback）是什么？(逼乎)</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setTimeout(callback,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的<code>callback()</code>就作为回调函数，在1000ms后会被调用。</p>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p>回到我们的主题，运用最广泛的网络api <code>ajax</code>就是以回调方式使用的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line">xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">//定义回调函数</span></span><br><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//如果请求完成 且 返回状态码为200</span></span><br><span class="line">	<span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//输出内容</span></span><br><span class="line">		<span class="built_in">console</span>.log(xmlhttp.responseText);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"https://about.huaji8.top/links.json"</span>,<span class="literal">true</span><span class="comment">/*异步运行*/</span>);</span><br><span class="line"><span class="comment">//发送</span></span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>效果可能不是很好，可能是因为没有调整动画曲线，不过这都是小问题。<br>源码需要重构，不好意思拿出来。感兴趣的话可以联系我。</p>
+<p>复制到浏览器<code>console</code>可以运行。</p>
 </blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们将前面的炫酷ui可以分成两部分。</p>
-<p><img src="/img/web动画框架的初步设计/分割.png" alt=""></p>
-<p>上面这两个界面分开来的话，相信对各位前端大神都是小菜一碟的吧。</p>
-<p>这个框架的思路就是用程序来自动补间。</p>
-<p>我们在每个元素身上放个key。</p>
-<p><img src="/img/web动画框架的初步设计/key.png" alt=""></p>
-<p>先记录下所有被标记的元素的位置。</p>
-<p>页面改变后将其自动补间到新的位置。包括高度宽度等css属性。</p>
-<p>嗯，但这个补间怎么做？<code>js</code>？<code>css transition</code>？</p>
-<p>显然<code>css transition</code>是更高效的选择，要使用<code>css transition</code>的前提就是页面的转换不能破坏这个元素。</p>
-<p>现有路由库如：<code>react-router</code>等，都是删掉原来的元素，填入新的元素，所以<code>css transition</code>是行不通的。</p>
-<p>然而我选了一种特别极端的方法，添加一个布局层。</p>
-<h2 id="布局层"><a href="#布局层" class="headerlink" title="布局层"></a>布局层</h2><p><img src="/img/web动画框架的初步设计/float.png" alt=""></p>
-<p>上图红色部分就是布局层，布局层没有显示，没有动画，由路由负责管理。</p>
-<p>图片中有内容的元素是绝对定位的，存在在布局层之上，不受路由管理，称为<code>Plane</code>(面)。</p>
-<p>用程序把<code>Plane</code>放在对应的布局层之上，设置高度宽度，加上<code>css transition</code>。当布局层发送改变时，刷新<code>Plane</code>的位置，高度，宽度，内容。这个过程中<code>Plane</code>是不会被重建的于是<code>css transition</code>就产生了补间动画。</p>
 <blockquote>
-<p>得益于react的 vdom 和 jsx 我们可以按正常的方式写元素，然后把他们渲染在其他地方。</p>
+<p><code>jquery</code>封装的ajax写法要比原版简单的多，对这是原版。</p>
 </blockquote>
-<hr>
-<p>再说下<a href="https://themes.materializecss.com/pages/demo#0" target="_blank" rel="noopener">这个站</a></p>
-<p>这个站也有布局转换的过渡效果。</p>
-<p><img src="/img/web动画框架的初步设计/垃圾1.png" alt=""><img src="/img/web动画框架的初步设计/垃圾2.png" alt=""></p>
-<p>可以看到布局变化后，原来的元素并没有被清理，codepen上许多方案也有这种缺陷，页面一多，就会有很多元素，肯定不行。</p>
-<p>这篇文章的方法会真正释放掉旧的元素，也算个优点。</p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>如果你有更好的方法欢迎与我讨论。</p>
-<p><span style="font-size:12px;color:#888">封面画师: <a href="http://www.pixiv.net/member.php?id=3376987" target="_blank" rel="noopener">秋月</a></span></p>
+<blockquote>
+<p>ajax也可以同步运行，只要将<code>XMLHttpRequest.open()</code>最后一个参数改成<code>false</code>，就是同步运行，执行<code>send()</code>后浏览器会卡住，直到请求返回。</p>
+</blockquote>
+<h2 id="Promise-（承诺）"><a href="#Promise-（承诺）" class="headerlink" title="Promise （承诺）"></a>Promise （承诺）</h2><p>Promise是一种更高级的回调接口。</p>
+<blockquote>
+<p>详细的介绍在这<a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">ECMAScript 6 入门</a>，<code>Promise</code>的好处千千万，建议大家全部使用<code>Promise</code>，<code>jquery</code>的所有异步api也全部支持<code>Promise</code></p>
+</blockquote>
+<blockquote>
+<p>ES6 原生支持 Promise ， 在不支持的浏览器上可以使用垫片库 <a href="https://github.com/stefanpenner/es6-promise" target="_blank" rel="noopener">es6-promise</a></p>
+</blockquote>
+<p>下面是一个将<code>setTimeout()</code>改造成<code>Promise</code>的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回一个Promise 就可以无限then()啦 还可以用catch()捕获异常</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTimeoutP</span>(<span class="params">ms</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//创建Promise 如果成功就调用resolve，失败就调用reject</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">		setTimeout(resolve,ms);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setTimeoutP(<span class="number">1000</span>).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">	<span class="comment">// 返回Promise 可以在then()中继续执行</span></span><br><span class="line">	<span class="keyword">return</span> setTimeoutP(<span class="number">1000</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'world'</span>);</span><br><span class="line">	<span class="comment">// 返回数据 可以在then()中获取</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(r);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//一秒后输出Hello</span></span><br></pre></td></tr></table></figure>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p>fetch 是新的网络api 基于 Promise 设计。在旧的浏览器上可以使用 <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank" rel="noopener">isomorphic-fetch</a>，这个api是 node 和 浏览器环境通用的，实现同构应用必备的库。</p>
+<blockquote>
+<p>注：同构(isomorphic/universal)就是使前后端运行同一套代码的意思，后端一般是指 NodeJS 环境。</p>
+</blockquote>
+<p>范例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">"https://about.huaji8.top/links.json"</span>)</span><br><span class="line">	.then(<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;<span class="keyword">return</span> e.json()&#125;)</span><br><span class="line">	.then(<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;<span class="built_in">console</span>.log(e)&#125;);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>尝试在浏览器<code>console</code>中运行</p>
+</blockquote>
+<h2 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h2><p><code>Generator 函数</code> 是 <code>ES6</code> 提供的语法，不过很快就被 <code>ES2017</code> 的 <code>async 函数</code> 代替，所以不多说了，感兴趣的可以看<a href="http://es6.ruanyifeng.com/?search=fetch&amp;x=0&amp;y=0#docs/generator" target="_blank" rel="noopener">ECMAScript 6 入门</a></p>
+<blockquote>
+<p>第一次看到 <code>Generator 函数</code> 是在 <code>unity</code> 中的协程，现在js也有这个语法了。</p>
+</blockquote>
+<h2 id="async-函数"><a href="#async-函数" class="headerlink" title="async 函数"></a>async 函数</h2><p>重头来了，这是目前最屌的写法，真正用同步的写法写异步程序。</p>
+<blockquote>
+<p>async 实际是 <code>Generator 函数</code> 的语法糖， <code>Generator</code> 才是技术</p>
+</blockquote>
+<p>我们继续拿上面建的 <code>setTimeoutP()</code> 举例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回一个Promise</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTimeoutP</span>(<span class="params">ms</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//创建Promise 如果成功就调用resolve，失败就调用reject</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">		setTimeout(resolve,ms);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncDelay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">// await可以拿到Promise的返回值</span></span><br><span class="line">	<span class="keyword">let</span> O = <span class="keyword">await</span> fetch(<span class="string">"https://about.huaji8.top/links.json"</span>)</span><br><span class="line">		.then(<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;<span class="keyword">return</span> e.json()&#125;)</span><br><span class="line">	<span class="keyword">await</span> setTimeoutP(<span class="number">1000</span>)</span><br><span class="line">	<span class="built_in">console</span>.log(O);</span><br><span class="line">	<span class="comment">//一秒后输出 https://about.huaji8.top/links.json 内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">asyncDelay();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>尝试在浏览器<code>console</code>中运行</p>
+</blockquote>
+<h2 id="async-异常处理"><a href="#async-异常处理" class="headerlink" title="async 异常处理"></a>async 异常处理</h2><p><code>async</code> 可以以同步的方式编写异常处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncDelay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">let</span> O = <span class="keyword">await</span> fetch(<span class="string">"https://about.huaji8.top/links.json"</span>)</span><br><span class="line">			.then(<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;<span class="keyword">return</span> e.json()&#125;)</span><br><span class="line">	&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">		<span class="comment">//输出异常</span></span><br><span class="line">		<span class="built_in">console</span>.log(e)</span><br><span class="line">		....</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">await</span> setTimeoutP(<span class="number">1000</span>)</span><br><span class="line">	<span class="built_in">console</span>.log(O);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是超级方便呢。</p>
+<p>关于<code>async</code>的更多信息，可以查看<a href="http://es6.ruanyifeng.com/#docs/async" target="_blank" rel="noopener">ECMAScript 6 入门</a>或<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction" target="_blank" rel="noopener">MDN</a></p>
 
         
     
@@ -551,7 +582,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/03/22/web动画框架的初步设计/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/06/01/azusa/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -565,7 +596,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2017/03/20/js获取元素绝对位置/" id="post_nav-older" class="next-content">
+        <a href="/2017/03/22/web动画框架的初步设计/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
