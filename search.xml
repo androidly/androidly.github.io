@@ -52,9 +52,9 @@
         <category>发布</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>web</tag>
         <tag>发布</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -65,9 +65,9 @@
         <category>技术</category>
       </categories>
       <tags>
+        <tag>web</tag>
         <tag>技术</tag>
         <tag>js</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>

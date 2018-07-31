@@ -209,11 +209,11 @@
       <category term="发布" scheme="http://dorid.top/categories/%E5%8F%91%E5%B8%83/"/>
     
     
-      <category term="技术" scheme="http://dorid.top/tags/%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="web" scheme="http://dorid.top/tags/web/"/>
     
       <category term="发布" scheme="http://dorid.top/tags/%E5%8F%91%E5%B8%83/"/>
+    
+      <category term="技术" scheme="http://dorid.top/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -237,11 +237,11 @@
       <category term="技术" scheme="http://dorid.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="web" scheme="http://dorid.top/tags/web/"/>
+    
       <category term="技术" scheme="http://dorid.top/tags/%E6%8A%80%E6%9C%AF/"/>
     
       <category term="js" scheme="http://dorid.top/tags/js/"/>
-    
-      <category term="web" scheme="http://dorid.top/tags/web/"/>
     
   </entry>
   
