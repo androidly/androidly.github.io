@@ -23,9 +23,13 @@ public class Main
 			//String j2=new JSONObject().toString();
 			JSONObject sorce=new JSONObject();
 			JSONObject room=new JSONObject();
+			
+			System.out.println("输入账号：");
+			String user=sc.next();
+			sc.nextLine();
 				j.put("P","ly.pp.justpiano");
 				j.put("V","4.3");
-				j.put("N","netqaq");
+				j.put("N",user.toString());
 				j.put("K","因你而在");
 				j.put("C","");
 				room.put("N","");
@@ -53,9 +57,9 @@ public class Main
 				byte[] dating=new byte[]{0x1d,0x00,0x04};
 				byte[] next=new byte[]{0x15,0x07,0x04};
 			
-				byte[] next2=new byte[]{0x0f ,0x07,0x04 ,0x61, 0x2f ,0x64 ,0x2f ,0x77  ,0x69 ,0x6e ,0x64 ,0x6f ,0x77 ,0x73 ,0x6b ,0x61  ,
-			0x69 ,0x6a ,0x69};
-				byte[] next3=new byte[]{0x03,0x07,0x04};
+				byte[] next2=new byte[]{0x28 ,0x00,0x00 ,0x7b, 0x22 ,0x54 ,0x22 ,0x3a  ,0x31 ,0x7d};
+			
+				byte[] next3=decodeHex("2800007B2253223A225C7530303166C28B5C625C75303030305C75303030305C75303030305C75303030305C75303030305C75303030305C75303030306362C2A23760C3805C2FC28021C28D55C288365C7530303030C2AB4574C2B3C29D7EC28061203DC38540C2A2C39DC2B8C295C3A3C2945C75303031395C753030316351C386C280445C75303030655C7530303031C380C280C381C28072C289C3B35C7530303031C395C3BCC289C3A1C28EC2815C7530303065415C22C3AD5C75303031666867525C75303031625C6635C3BFC280C39329C28D5C75303031634DC38FC2B05C753030313874C3A14EC2B5C3B25C7530303161C2BF5C7530303036C2865C7530303031C3B63A5C7530303030C38CC3B3C3AFC2945C6E5C745C75303030305C7530303030222C224E223A22E7919CE4B990E6989FE79A84E58FB3E6898BE8A1A8E78EB0E696B9E6B395E7A094E7A9B6202D20E7919CE4B990E6989F58222C2254223A327D");
 				byte[] next4=new byte[]{0x17,0x00,0x00};
 				/**byte[] next5=new byte[] {0x05 ,0x00 ,0x00 ,0x7b ,0x22 ,0x53 ,0x22 ,0x3a  ,0x22 ,0x5c ,0x75 ,0x30 ,0x30 ,0x31, 0x66,
 				0xc2,0x8b,0x5c ,0x62 ,0x5c ,0x75 ,0x30 ,0x30 ,0x30 , 0x30 ,0x5c ,0x75 ,0x30 ,0x30 ,0x30 ,0x30 ,0x5c,
@@ -69,7 +73,7 @@ public class Main
 		
 			
 			//当输入的数据是exit退出输入
-				System.out.println("--1 登陆\n--2  进入大厅二\n--3  创建房间\n--4  模拟弹奏\n--5  提交成绩\n--其他 离线");
+				System.out.println("--1 登陆\n--2  进入大厅二\n--3  创建房间\n--4  模拟弹奏\n--5  提交成绩\n--6  准备考级\n--7  提交考级分数\n--其他 离线");
 	
 				
 					//System.out.println(".....开始....");
@@ -89,7 +93,7 @@ public class Main
 						System.out.println("已登陆");
 					}else if(start==5){
 						//dos.write(sss);
-						while(aaa<=4372){
+						while(aaa<=1){
 							//td.sleep(300);
 						dos.write(result);
 						td.sleep(60);
@@ -110,9 +114,16 @@ public class Main
 						}else if(start==8){
 						dos.write(next);
 						}else if(start==6){
+						System.out.println("准备考级");
 						dos.write(next2);
 						}else if(start==7){
-						dos.write(next3);
+							System.out.println("提交考级结果");
+							while(aaa<=50){
+								dos.write(next3);
+								td.sleep(100);
+								aaa++;
+							}
+						System.out.println("考级结束");
 						}else if(start==4){
 						dos.write(next4);
 						System.out.println("模拟弹奏中");
@@ -195,5 +206,6 @@ public class Main
 			result[i/2] = (byte) (b << 4 | Byte.decode("0x" + c));
 		}
 		return result;
+		
 	}
 }
