@@ -38,6 +38,7 @@ public class Main
 				//for(byte b:result){System.out.println(b);}
 			    int aaa=0;
 				int post=0;
+				int bbb=10;
 				int add=2287;//单次经验
 			
 				//2287经验
@@ -79,7 +80,7 @@ public class Main
 						System.out.println("已登陆");
 					}else if(start==5){
 						//dos.write(sss);
-						while(aaa<=66){
+						while(aaa<=10){
 							//td.sleep(300);
 						dos.write(result);
 						td.sleep(60);
@@ -103,9 +104,12 @@ public class Main
 						dos.write(next2);
 						}else if(start==7){
 							System.out.println("提交考级分数");
-							while(aaa<=50){
-								dos.write(next3);
+							//循环40次
+							while(aaa<=39){
+								//dos.write(next3);
 								td.sleep(100);
+								//post+=bbb;
+								//System.out.println(post);
 								aaa++;
 							}
 						System.out.println("考级结束");
@@ -116,6 +120,7 @@ public class Main
 						dos.flush(); 
 						dos.close();
 						s.close();
+						System.out.println("已离线");
 					}
 			}
 			
